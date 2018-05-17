@@ -1,0 +1,10 @@
+Если запускаем много контейнеров с Apache или другим софтом использующим inotify:
+
+fs.file-max = 2097152
+fs.inotify.max_queued_events=1048576
+fs.inotify.max_user_instances=1048576
+fs.inotify.max_user_watches=1048576
+
+Для внутренней маршрутизации активируем форвардинг:
+
+net.ipv4.ip_forward=1

@@ -1,0 +1,19 @@
+[Unit]
+Description=LXD - main daemon
+After=network.target
+Requires=network-online.target
+Documentation=man:lxd(1)
+
+[Service]
+EnvironmentFile=-/etc/environment
+ExecStart=/usr/local/bin/lxd --group sudo --logfile=/var/log/lxd.log
+KillMode=process
+TimeoutStartSec=600
+TimeoutStopSec=40
+Restart=on-failure
+LimitNOFILE=1048576
+LimitNPROC=infinity
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target

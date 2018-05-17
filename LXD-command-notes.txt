@@ -1,0 +1,35 @@
+########################################################
+# Справочник по базовым командам управления LXD-фермой #
+#                                                      #
+# Для проекта: http://gita-dev.ru                      #
+########################################################
+
+
+== Устанавливаем смещение GID/UID для контейнеров (Однократно)
+
+echo "root:1000000:65536" | sudo tee -a /etc/subuid /etc/subgid
+
+== Инициализируем контейнер
+
+# lxc init ubuntu:16.04 test-ubuntu-lxd
+
+== Устанавливаем MAC-адрес интерфейсу контейнера
+
+lxc config set v33-machine volatile.eth0.hwaddr 00:16:3e:6d:12:ee
+
+== Отключение автозапуска контейнера
+
+# lxc config set mail-server boot.autostart 0
+
+== Отключение автозапуска для всех вновь создаваемых контейнеров
+
+# lxc profile set default boot.autostart 0
+
+== Удаляем eth0 из конфигурации по умолчанию
+
+# lxc profile device remove default eth0
+
+== Назначаем новую ассоциацию с мостом по умолчанию
+
+# lxc network attach-profile lxd-cluster-01 default eth0
+

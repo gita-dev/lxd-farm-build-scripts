@@ -1,0 +1,6 @@
+auto lxd-cluster-01
+iface lxd-cluster-01 inet static
+    bridge_ports none
+    address 10.252.0.5
+    netmask 255.255.255.0
+    post-up /etc/firewall.sh
