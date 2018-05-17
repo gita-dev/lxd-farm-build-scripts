@@ -7,3 +7,5 @@
 === Каталог manager ===
 
 Набор скриптов обслуживания инфораструктуры
+
+Более подробно можно почитать в статье: https://gita-dev.ru/blog/nabor-skriptov-dlja-upravlenija-lxd-fermoj/
